@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whimsify - AI-Powered Mental Health Companion</title>
+  <meta name="description" content="Experience premium voice journaling with AI-powered emotional insights, guided breathwork spells, and personalized wellness tracking.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Manrope', 'sans-serif'],
+            headline: ['Merriweather', 'serif'],
+          },
+          colors: {
+            background: 'hsl(240 5% 15%)',
+            foreground: 'hsl(0 0% 98%)',
+            card: 'hsl(240 5% 18%)',
+            'card-foreground': 'hsl(0 0% 98%)',
+            popover: 'hsl(240 6% 10%)',
+            'popover-foreground': 'hsl(0 0% 98%)',
+            primary: {
+              DEFAULT: 'hsl(240 3% 80%)',
+              foreground: 'hsl(240 5.9% 10%)',
+            },
+            secondary: {
+              DEFAULT: 'hsl(240 5% 22%)',
+              foreground: 'hsl(0 0% 98%)',
+            },
+            muted: {
+              DEFAULT: 'hsl(240 5% 22%)',
+              foreground: 'hsl(0 0% 63.9%)',
+            },
+            accent: {
+              DEFAULT: 'hsl(240 3% 80%)',
+              foreground: 'hsl(240 5.9% 10%)',
+            },
+            destructive: {
+              DEFAULT: 'hsl(0 62.8% 30.6%)',
+              foreground: 'hsl(0 0% 98%)',
+            },
+            border: 'hsl(240 5% 24%)',
+            input: 'hsl(240 5% 24%)',
+            ring: 'hsl(240 3% 80%)',
+          },
+           borderRadius: {
+            lg: '0.5rem',
+            md: 'calc(0.5rem - 2px)',
+            sm: 'calc(0.5rem - 4px)',
+            xl: "calc(0.5rem + 4px)",
+            '2xl': "calc(0.5rem + 8px)",
+            '3xl': "calc(0.5rem + 16px)",
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: hsl(240 5% 15%);
+      color: hsl(0 0% 98%);
+      font-family: 'Manrope', sans-serif;
+    }
+    .font-headline {
+        font-family: 'Merriweather', serif;
+    }
+    .animated-background-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.08;
+      overflow: hidden;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50% 40% 60% 30%;
+      background: hsla(0, 0%, 98%, 0.08);
+      animation: float 20s ease-in-out infinite;
+    }
+    .shape-1 { width: 180px; height: 180px; top: 10%; left: 15%; animation-delay: 0s; }
+    .shape-2 { width: 150px; height: 150px; top: 60%; right: 20%; animation-delay: -7s; }
+    .shape-3 { width: 200px; height: 200px; bottom: 20%; left: 10%; animation-delay: -14s; }
+    .shape-4 { width: 160px; height: 160px; top: 40%; right: 40%; animation-delay: -3s; }
+    .shape-5 { width: 190px; height: 190px; top: 80%; left: 60%; animation-delay: -10s; }
+    .shape-6 { width: 170px; height: 170px; top: 25%; left: 70%; animation-delay: -5s; }
+    @keyframes float {
+      0%, 100% { 
+          transform: translateY(0) translateX(0) rotate(0deg); 
+          border-radius: 50% 40% 60% 30%;
+      }
+      33% { 
+          transform: translateY(-20px) translateX(10px) rotate(120deg); 
+          border-radius: 40% 60% 30% 50%;
+      }
+      66% { 
+          transform: translateY(10px) translateX(-15px) rotate(240deg); 
+          border-radius: 60% 30% 50% 40%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-background font-body antialiased">
+  <div class="relative isolate overflow-x-hidden">
+    <div class="animated-background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+      <div class="shape shape-6"></div>
+    </div>
 
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-20 py-4 bg-white/5 backdrop-blur-lg border-b border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center gap-3">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-neutral-50">
+                <path d="M4 4C4 4 5 12 12 12C19 12 20 4 20 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M4 20C4 20 5 12 12 12C19 12 20 20 20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span class="font-bold font-headline text-xl text-neutral-50">Whimsify</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="min-h-screen flex items-center justify-center text-center relative py-20 pt-32">
+        <div class="container mx-auto px-6 z-10">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-headline font-extrabold mb-8 tracking-tighter text-neutral-50">
+              Your AI Companion for Whimsical Wellness
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto mb-12">
+              Experience premium voice journaling with AI-powered emotional insights, guided breathwork spells, and personalized wellness tracking in a beautifully crafted dark interface.
+            </p>
+            <a href="#waitlist" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-lg font-semibold ring-offset-background transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-7">
+              Start Your Journey
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Showcase Section -->
+      <section class="py-16 sm:py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-50">
+              Discover Whimsical Wellness
+            </h2>
+            <p class="mt-4 text-lg text-neutral-300">
+              A glimpse into the serene and insightful world of Whimsify.
+            </p>
+          </div>
+          <div class="w-full max-w-[270px] mx-auto">
+            <div class="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+              <img src="https://firebasestorage.googleapis.com/v0/b/neuroapp-68afa.firebasestorage.app/o/photos%2F1.jpg?alt=media&token=604e5f8b-b15d-4e18-b2fd-cca66d0f66c1" alt="A screenshot of the Whimsify app's voice recording interface, showing a dark theme with a central record button." class="object-contain absolute h-full w-full inset-0 text-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="py-16 sm:py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-50">
+              Features
+            </h2>
+            <p class="mt-4 text-lg text-neutral-300">
+              Discover the power of AI-enhanced mental wellness with our comprehensive suite of tools designed for your emotional clarity and peace of mind.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+              <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-4 text-neutral-100">Voice Journaling & AI Analysis</h3>
+              <p class="text-neutral-300 leading-relaxed">Record your thoughts and emotions with high-quality audio capture. Our AI analyzes your voice entries for sentiment, emotional patterns, and provides personalized insights to help you understand your mental state better.</p>
+            </div>
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                  <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"></path><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"></path><path d="M9.8 4.4A2 2 0 1 1 11 8H2"></path></svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-neutral-100">Guided Breathing Spells</h3>
+                <p class="text-neutral-300 leading-relaxed">Personalized breathing exercises based on your current mood - from "Joyful Spells" to "Calming Spells". Each session includes custom instructions, cycle counts, and special techniques to regulate your emotional state.</p>
+            </div>
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                  <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path></svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-neutral-100">Mystical Fortune Insights</h3>
+                <p class="text-neutral-300 leading-relaxed">Consult the mystical orb for AI-generated fortune readings based on your journal entries. Earn gems through consistent journaling and unlock deeper insights into your emotional patterns and future guidance.</p>
+            </div>
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                  <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="m7 11 3-3 4 4 5-5"></path></svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-neutral-100">Emotional Analytics & Tracking</h3>
+                <p class="text-neutral-300 leading-relaxed">Advanced mood tracking with quality scores, emotional word density analysis, and storytelling metrics. Visualize your emotional journey over time with beautiful, dark-themed charts and progress indicators.</p>
+            </div>
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                  <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-neutral-100">Beautiful PDF Journal Export</h3>
+                <p class="text-neutral-300 leading-relaxed">Export your voice entries as stunning PDF journals with dark premium themes, mood indicators, quality ratings, and emoji-free formatting. Perfect for sharing with therapists or keeping personal records.</p>
+            </div>
+            <div class="relative p-8 h-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-2">
+                <div class="flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-accent/20 to-accent/10 border border-accent/20 text-accent">
+                  <div class="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+                  </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-neutral-100">Adaptive Dark Themes</h3>
+                <p class="text-neutral-300 leading-relaxed">Immerse yourself in premium dark interfaces including "Premium Dark", "Starry Night", "Glamour", and "Velour Suede" themes. Each theme adapts to your content with animated backgrounds and elegant glassmorphism effects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Waitlist Section -->
+      <section id="waitlist" class="py-16 sm:py-24">
+        <div class="container mx-auto px-6">
+          <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tighter text-neutral-50">
+              Join the Whimsify Revolution
+            </h2>
+            <p class="mt-4 text-lg text-neutral-300">
+              Be the first to experience the future of mental wellness. Join our waitlist to get early access and free premium features as a thank you.
+            </p>
+            <form action="#" class="mt-8 flex flex-col sm:flex-row items-center gap-4 max-w-lg mx-auto">
+              <input type="email" name="email" placeholder="Enter your email" required class="h-12 text-base bg-background/50 border-white/10 focus:ring-primary focus:ring-2 focus:border-primary transition-all duration-300 w-full px-5 py-6 rounded-xl flex w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" />
+              <button type="submit" class="w-full sm:w-auto flex-shrink-0 text-base font-semibold px-6 py-6 rounded-xl transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90">
+                Join Waitlist
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-white/10 py-10">
+      <div class="container mx-auto px-6 text-center text-neutral-400">
+        <p>&copy; 2025 Whimsify. By Mahmoud Salama.</p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
